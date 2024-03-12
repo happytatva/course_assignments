@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap");
+
+/* ------variables------- */
+
+:root {
+  --clr-primary: #f15025;
+  --clr-black: #222;
+  --clr-offBlack: #3a3a3a;
+  --clr-white: #fff;
+  --clr-offWhite: #f7f7f7;
+  --clr-grey-dark: #afafaf;
+  --ff-primary: "Fira Code", monospace;
+  --transition: all 0.3s linear;
+  --spacing: 0.2rem;
+  --radius: 0.5rem;
+}
+
+/* ------global CSS------ */
+
+*,*::before,*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-primary);
+  color: var(--clr-black);
+  background: var(--clr-white);
+  line-height: 1.5;
+}
+a{
+     text-decoration: none;
+}
+img{
+     width: 100%;
+     display: block;
+}
+h1,h2,h3{
+     text-transform: capitalize;
+     letter-spacing: var(--spacing);
+     margin-bottom: 1.25rem;
+}
+h1{
+     font-size: 3rem;
+}
+h2{
+     margin-bottom: 0;
+}
+p{
+     font-size: 0.7rem;
+     font-weight: 300;
+     line-height: 2;
+}
+.btn{
+     display: inline-block;
+     padding: 0.5rem 1rem;
+     border: 3px solid var(--clr-primary);
+     color: var(--clr-primary);
+     text-transform: capitalize;
+     margin: 3rem;
+     transition: var(--transition);
+}
+.btn:hover{
+     background: var(--clr-primary);
+     color: var(--clr-white);
+}
+
+/* ----------index-page----------- */
+/* -------main-navbar------ */
+
+.main-navbar{
+     background: var(--clr-grey-dark);
+     padding: 0 2rem;
+}
+.main-navbar li{
+     list-style: none;
+}
+.main-navbar a{
+     display: block;
+     padding: 1rem 0;
+     text-transform: capitalize;
+     color: var(--clr-primary);
+     letter-spacing: var(--spacing);
+     transition: var(--transition);
+     text-align: center;
+}
+.main-navbar a:hover{
+     color: var(--clr-black);
+}
+
+@media screen and (min-width:992px) {
+     .main-navbar ul{
+          max-width: 1170px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+     }
+}
+
+/* -----hero-page---- */
+
+.hero-section{
+     height: 100vh;
+     background:var(--clr-primary);
+     color: var(--clr-white);
+     display: grid;
+     justify-content: center;
+     align-items: center;
+}
+.hero-banner{
+     text-align: center;
+}
+.hero-banner p{
+     max-width: 567px;
+     font-size: 1rem;
+}
+@media screen and (max-width:600px) {
+    .hero-banner{
+     padding: 0 3rem;
+    }
+}
+@media screen and (min-width:767px) {
+     .hero-section{
+          background: linear-gradient(rgba(255, 25, 25, 0.75), rgba(0,0,0,0.75)), url("../images/image-2.jpeg") center/cover fixed no-repeat;
+     }
+}
+
+/* -----cards-page---- */
+
+.title{
+     text-align: center;
+}
+.cards-section,.tiles-section{
+     padding: 4rem 0;
+}
+.cards-center,.tiles-center{
+     width: 80vw;
+     max-width: 1170px;
+     margin: 2rem auto;
+}
+.card{
+     border: 1px solid var(--clr-grey-dark);
+     margin-bottom: 3rem;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: auto 1fr auto;
+}
+.card-info{
+     padding: 1rem;
+}
+.card-footer{
+     background: var(--clr-grey-dark);
+     padding: 0.5rem 1rem;
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+     justify-items: center;
+     color: var(--clr-offBlack);
+}
+.card-footer span:hover{
+     color: var(--clr-primary);
+}
+@media screen and (min-width:767px) {
+     .cards-center{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          grid-column-gap: 2rem;
+     }
+}
+@media screen and (min-width:992px) {
+     .cards-center{
+          grid-template-columns: repeat(3,1fr);
+     }
+}
+@media screen and (min-width:1170px) {
+     .cards-center{
+          grid-template-columns: repeat(4,1fr);
+     }
+}
+
+/* ------tiles-page----- */
+
+.tiles-center{
+     display: grid;
+     grid-template-columns: 1fr;
+     row-gap: 2rem;
+}
+@media screen and (min-width:767px) {
+     .tiles-center{
+          grid-template-columns: repeat(2,1fr);
+          column-gap: 2rem;
+     }
+}
+@media screen and (min-width:992px) {
+     .tiles-center{
+          grid-template-columns: repeat(3,1fr);
+     }
+}
+@media screen and (min-width:1170px) {
+     .tiles-center{
+          grid-template-columns: repeat(4,1fr);
+          grid-template-rows: repeat(5,200px);
+          grid-template-areas: 
+          "a a a b"
+          "a a a c"
+          "d d d d"
+          "e f f f"
+          "e g h i";
+     }
+     .tiles-section img{
+          height: 100%;
+          object-fit: cover;
+     }
+     .tile-1{
+          grid-area:a;
+     }
+     .tile-2{
+          grid-area:b;
+     }
+     .tile-3{
+          grid-area:c;
+     }
+     .tile-4{
+          grid-area:d;
+     }
+     .tile-5{
+          grid-area:e;
+     }
+     .tile-6{
+          grid-area:f;
+     }
+     .tile-7{
+          grid-area:g;
+     }
+     .tile-8{
+          grid-area:h;
+     }
+     .tile-9{
+          grid-area:i;
+     }
+}
+
+/* -----layout-page----- */
+.header{
+     background-color: var(--clr-primary);
+     color: var(--clr-white);
+     text-align: center;
+     padding: 0.5rem 0;
+}
+.content{
+     padding: 2rem;
+}
+.content p{
+     font-size: 1rem;
+}
+.sidebar{
+     background-color: var(--clr-primary);
+     padding: 1rem 0;
+     color: var(--clr-white);
+     font-size: 1.2rem;
+     display: grid;
+     grid-template-columns: repeat(4,1fr);
+     justify-items: center;
+}
+.footer{
+     background-color: var(--clr-black);
+     color: white;
+     padding: 0.5rem 0;
+     text-transform: capitalize;
+     text-align: center;
+}
+.footer p{
+     font-size: 1.2rem;
+}
+.main{
+     min-height: 100vh;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: auto auto 1fr auto auto;
+}
